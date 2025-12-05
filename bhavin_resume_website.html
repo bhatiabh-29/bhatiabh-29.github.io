@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavin Bhatia - Software QA Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --accent: #06b6d4;
+            --accent-light: #22d3ee;
+            --success: #10b981;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.05;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.03) 10px,
+                rgba(255,255,255,0.03) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Header with Gradient */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .cert-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .cert-badge:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .contact-links a:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .section:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(to right, var(--primary), var(--accent)) 1;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        /* Professional Summary */
+        .summary {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05));
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.08));
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-category h3 {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(6, 182, 212, 0.03));
+            border-radius: 16px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .company-info h3 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .job-title {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .date-range {
+            color: white;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-item li {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--text-light);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item li:hover {
+            color: var(--text-dark);
+            transform: translateX(5px);
+        }
+
+        .experience-item li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Featured Posts */
+        .featured-post {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08));
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), #a855f7, var(--accent));
+        }
+
+        .featured-post:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+        }
+
+        .post-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .post-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .post-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .post-type {
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .post-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .post-title {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .post-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .post-content p:last-of-type {
+            margin-bottom: 1.5rem;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .subsection-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Recommendations */
+        .recommendation-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05));
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+            border-left-width: 6px;
+        }
+
+        .recommendation-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .recommendation-header {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .recommender-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .recommender-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .recommender-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .recommender-title {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .recommendation-relation {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .recommendation-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .recommendation-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .recommendation-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .recommendation-text strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Projects */
+        .project-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.08));
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--success);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '🚀';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2.5rem;
+            opacity: 0.2;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .project-card ul {
+            list-style: none;
+        }
+
+        .project-card li {
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .project-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Education */
+        .education-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.08));
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .education-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .education-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .education-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .coursework {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .coursework strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .gpa {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .footer-links a:hover {
+            background: rgba(99, 102, 241, 0.3);
+            color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+
+            .post-layout {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .recommender-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .section {
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+            
+            .section:nth-child(1) { animation-delay: 0.1s; }
+            .section:nth-child(2) { animation-delay: 0.2s; }
+            .section:nth-child(3) { animation-delay: 0.3s; }
+            .section:nth-child(4) { animation-delay: 0.4s; }
+            .section:nth-child(5) { animation-delay: 0.5s; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="profile-container">
+                <img src="https://i.postimg.cc/ryZ0PSb5/profilepic.jpg" alt="Bhavin Bhatia" class="profile-pic">
+            </div>
+            <h1>Bhavin Bhatia</h1>
+            <p class="header-subtitle">Software QA Engineer</p>
+            <div class="certifications">
+                <span class="cert-badge">🏆 AWS Certified Cloud Practitioner</span>
+                <span class="cert-badge">🔐 CompTIA Security+ CE</span>
+            </div>
+            <div class="contact-links">
+                <a href="tel:+18573015202">📞 (857) 301-5202</a>
+                <a href="mailto:bhavinbhatia4@gmail.com">✉️ Email</a>
+                <a href="https://www.linkedin.com/in/bhatiabhavin/" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/bhatiabh-29/" target="_blank">💻 GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Software QA Engineer with 6+ years of experience designing automation frameworks, validating large-scale distributed systems, and integrating CI/CD pipelines across cloud environments. Strong expertise in Playwright, Selenium, Postman, GitHub Actions, Jenkins, Docker, and AWS. Proven track record of improving test coverage, reducing regression time, and driving high-quality releases in Agile environments.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>☁️ Cloud Platforms & DevOps</h3>
+                    <p>AWS, Azure, Google Cloud, GitHub Actions, Azure DevOps, Jenkins, Docker, Kubernetes</p>
+                </div>
+                <div class="skill-category">
+                    <h3>💻 Programming & Scripting</h3>
+                    <p>Python, Bash/Shell, SQL (MySQL, Snowflake), YAML, JSON, HTML, CSS</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🔧 Version Control & Collaboration</h3>
+                    <p>Git, GitHub, GitLab, JIRA, Confluence</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🤖 Automation & QA Tools</h3>
+                    <p>Postman, TestRail, Testmo, Selenium, Playwright, REST Assured, TestNG, JUnit, Cucumber, QTP/UFT, UiPath</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📋 Methodologies & Principles</h3>
+                    <p>Agile/Scrum, DevOps Best Practices, CI/CD Pipeline Design, Object-Oriented Programming (OOP), SDLC, STLC</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>MOORE</h3>
+                        <p class="job-title">Software Quality Assurance Engineer</p>
+                    </div>
+                    <span class="date-range">Jul 2024 – Present</span>
+                </div>
+                <ul>
+                    <li>Led QA team of 2 members for SimioOptimize validating predictive-modeling workflows and donor-analytics APIs used by nonprofits</li>
+                    <li>Designed detailed, comprehensive, and well-structured test plans, test cases, and bug reports aligned with Agile/Scrum methodologies</li>
+                    <li>Collaborated with 45-member product and engineering teams to drive testability, defect triaging, and release quality</li>
+                    <li>Performed Snowflake SQL validations improving data quality metrics by 8%</li>
+                    <li>Integrated Testmo to manage and report results, ensuring full visibility and continuous improvement across SDLC phases</li>
+                    <li>Implemented API/UI regression tests using Postman and Playwright, achieving 20% higher coverage and fewer defects in full workflows</li>
+                    <li>Embedded 60+ API tests into GitHub Actions CI/CD pipeline, improving release confidence and cutting manual effort by 30% through modern DevOps practices</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>SIEMENS HEALTHINEERS</h3>
+                        <p class="job-title">Software Quality Assurance Engineer</p>
+                    </div>
+                    <span class="date-range">Jan 2023 – Aug 2023</span>
+                </div>
+                <ul>
+                    <li>Validated the system's ability to remotely control devices used in vascular procedures without compromising safety or efficacy</li>
+                    <li>Created and supported testing scripts to streamline the testing process and reduce manual testing efforts by 20%</li>
+                    <li>Conducted exploratory testing to identify potential defects and issues that may not be captured by scripted tests</li>
+                    <li>Developed and maintained technical documentation for testing process, software defects, bug reports, and test results in HP ALM</li>
+                    <li>Built CI/CD pipelines using GitHub Actions and AWS CodeDeploy supporting zero-downtime deployments</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>KPMG</h3>
+                        <p class="job-title">Software Quality Assurance Engineer</p>
+                    </div>
+                    <span class="date-range">Dec 2018 – Aug 2021</span>
+                </div>
+                <ul>
+                    <li>Executed comprehensive test strategies for a mobile application for the Philadelphia Housing Development Corporation across iOS and Android platforms using Xcode and Android Studio, increasing field inspection efficiency by 15%</li>
+                    <li>Verified scheduling, data collection, GPS tracking functionality through functional and usability testing, streamlining operations by 10%</li>
+                    <li>Crafted scripts using Selenium, integrated with Azure DevOps, expanding test coverage and reducing manual testing by 30%</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Featured Section -->
+        <section class="section">
+            <h2 class="section-title">Featured</h2>
+            
+            <!-- Featured Post -->
+            <div class="featured-post">
+                <div class="post-header">
+                    <div class="post-type">📰 LinkedIn Post</div>
+                    <div class="post-date">2 years ago</div>
+                </div>
+                <h3 class="post-title">🎓 Student Spotlight Recognition at Northeastern University</h3>
+                <div class="post-layout">
+                    <div class="post-image">
+                        <img src="https://i.postimg.cc/1X7q06xY/1678713990794.jpg" alt="MSIS Bridge Student Spotlight - Bhavin Bhatia">
+                    </div>
+                    <div class="post-content">
+                        <p><strong>Bhavin Bhatia, MS'23, is a standout MSIS Bridge student at Northeastern University.</strong> Currently working as a software test automation engineer at Siemens, where he applies his skills and knowledge.</p>
+                        <p>Honored to be featured in the Student Spotlight on LinkedIn by Northeastern University. I'm grateful for the support and encouragement from Dr. Maricla Pirozzi Quartey, CALC, and Dr. Kal Bugrara.</p>
+                        <div class="post-tags">
+                            <span class="tag">#StudentSpotlight</span>
+                            <span class="tag">#NortheasternUniversity</span>
+                            <span class="tag">#MSISBridgeStudent</span>
+                            <span class="tag">#StudentSuccess</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Recommendations</h3>
+            
+            <div class="recommendation-card">
+                <div class="recommendation-header">
+                    <div class="recommender-info">
+                        <div class="recommender-avatar">RD</div>
+                        <div>
+                            <h3>Roland Duprez</h3>
+                            <p class="recommender-title">Retired - Software Development Manager | Solutions Architecture</p>
+                            <p class="recommendation-relation">Manager at Moore • May 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommendation-text">
+                    <p>I believe Bhavin to be a worthy contributor for both QA and software engineering positions. Even though he was hired onto my team to provide QA support, he also has a software engineering background, and was able to provide quality development work when needed, in addition to his everyday work on testing and tooling.</p>
+                    <p>He was able to onboard quickly, and demonstrated a knack for determining the information he needed and pursuing it with the appropriate resources. He also demonstrated excellent attention to detail in terms of pushing for valid acceptance criteria for testing.</p>
+                    <p><strong>The key theme when I reflect on my time working with Bhavin is "proactivity"</strong> - he takes initiative when he sees gaps or problems in tooling, processes, or communication. This is a portable skill that applies across positions. He's quick to pull together sidebar discussions with other team members to quickly address issues, and is active and provides valuable input in team retrospectives.</p>
+                    <p>During his time on my team, he initiated the creation of automation for smoke and acceptance testing for a service layer created by the team, recognizing and addressing a delivery need by reducing cycle time when moving new builds through environments. In addition to all of this, he's diligent, genuinely a pleasure to work with, and blends well with other team members.</p>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="recommendation-header">
+                    <div class="recommender-info">
+                        <div class="recommender-avatar">YL</div>
+                        <div>
+                            <h3>Yifan Li</h3>
+                            <p class="recommender-title">Senior Engineering Manager - Software QA at Siemens Healthineers</p>
+                            <p class="recommendation-relation">Senior Colleague • October 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommendation-text">
+                    <p>I had the pleasure working with Bhavin for 6 months on his Co-Op program at Siemens Healthineers Endovascular Robotics. He is an excellent professional with great problem-solving skills.</p>
+                    <p>During Bhavin's Co-Op, he helped the team on multiple projects and gained knowledge on system integration and software testing. Any company/team would be lucky to have Bhavin on board.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+            <h2 class="section-title">Featured Project</h2>
+            <div class="project-card">
+                <h3>CI/CD Pipeline with Jenkins, Docker & Flask on EC2</h3>
+                <ul>
+                    <li>Built end-to-end CI/CD pipeline integrating GitHub, Jenkins, and Docker on AWS EC2 for Flask application deployment</li>
+                    <li>Engineered a Jenkins pipeline to build docker images, container orchestration deploying updated versions with zero downtime</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <div class="education-info">
+                    <h3>Master of Science in Information Systems</h3>
+                    <p>Northeastern University</p>
+                    <div class="coursework">
+                        <strong>Relevant Courses:</strong> ☁️ Cloud Computing and Network Structures • 🔄 Agile • 🌐 Web Development and User Experience Engineering • 🏗️ Application Design & Engineering • 📊 Data Science Engineering • 💻 Data Structures and Algorithms • ✅ Software Quality Control • 🔐 Network Security
+                    </div>
+                </div>
+                <span class="gpa">GPA: 3.7</span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:bhavinbhatia4@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/bhatiabhavin/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/bhatiabh-29/" target="_blank">GitHub</a>
+            <a href="tel:+18573015202">Phone</a>
+        </div>
+        <p>&copy; 2024 Bhavin Bhatia. All rights reserved.</p>
+    </footer>
+</body>
+</html>
