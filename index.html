@@ -144,8 +144,35 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .portfolio-link {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .portfolio-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-link a:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .cert-badge {
@@ -850,6 +877,9 @@
                 <span class="cert-badge">🏆 AWS Certified Cloud Practitioner</span>
                 <span class="cert-badge">🔐 CompTIA Security+ CE</span>
             </div>
+            <div class="portfolio-link">
+                <a href="https://bhatiabh-29.github.io" target="_blank">🌐 Portfolio: bhatiabh-29.github.io</a>
+            </div>
             <div class="contact-links">
                 <a href="tel:+18573015202">📞 (857) 301-5202</a>
                 <a href="mailto:bhavinbhatia4@gmail.com">✉️ Email</a>
@@ -947,6 +977,7 @@
                     <li>Executed comprehensive test strategies for a mobile application for the Philadelphia Housing Development Corporation across iOS and Android platforms using Xcode and Android Studio, increasing field inspection efficiency by 15%</li>
                     <li>Verified scheduling, data collection, GPS tracking functionality through functional and usability testing, streamlining operations by 10%</li>
                     <li>Crafted scripts using Selenium, integrated with Azure DevOps, expanding test coverage and reducing manual testing by 30%</li>
+                    <li>Performed performance and load testing using LoadRunner to assess system scalability, response times, and stability under peak traffic</li>
                 </ul>
             </div>
         </section>
@@ -1022,6 +1053,18 @@
         <section class="section">
             <h2 class="section-title">Featured Projects</h2>
             
+            <div class="project-card">
+                <h3>Insurance Domain Application Testing: Policy & Claims Management System</h3>
+                <ul>
+                    <li>Designed and executed end-to-end test strategies for insurance domain applications covering policy administration, claims processing, premium calculations, and customer service workflows</li>
+                    <li>Developed comprehensive test cases for policy lifecycle management including policy creation, retrieval, modifications, cancellation, lapse and reinstatement scenarios</li>
+                    <li>Validated claims processing accuracy and timeliness by testing claims lifecycle, accounting, third-party messaging, and payment workflows for various insurance types (life, health, property/casualty)</li>
+                    <li>Performed functional testing of premium calculation engines ensuring accurate risk assessment based on coverage type, deductibles, policy limits, and customer risk profiles</li>
+                    <li>Conducted regulatory compliance testing to ensure adherence to industry standards and validated customer service functionalities including call routing, IVR integration, and security access controls</li>
+                    <li><strong>Technologies:</strong> Selenium, Postman, HP ALM, SQL, JIRA, Test Case Management Tools</li>
+                </ul>
+            </div>
+
             <div class="project-card">
                 <h3>API & Microservices Testing: E-commerce Order Management System</h3>
                 <ul>
